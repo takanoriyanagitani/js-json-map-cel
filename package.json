@@ -1,6 +1,6 @@
 {
   "name": "js-json-map-cel",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "",
   "main": "index.mjs",
   "scripts": {
@@ -10,7 +10,7 @@
   "author": "",
   "license": "Apache-2.0",
   "dependencies": {
-    "@marcbachmann/cel-js": "^5"
+    "@marcbachmann/cel-js": "^5.1"
   },
   "devDependencies": {
     "@types/node": "^24.10.1"
