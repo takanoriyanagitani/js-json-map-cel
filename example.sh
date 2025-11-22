@@ -53,3 +53,13 @@ ex3() {
 }
 
 ex3
+
+ex4() {
+	echo "\n--- Running Example 4 (strict mode with explicit dyn casts) ---"
+	jq -c -n '{
+    "int_val": 1,
+    "string_val": "hello"
+  }' | EXPR_STRING='{ "int_key": dyn(input.int_val), "string_key": dyn(input.string_val) }' node ./index.mjs
+}
+
+ex4
