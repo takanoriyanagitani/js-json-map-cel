@@ -1,0 +1,18 @@
+{
+  "name": "js-json-map-cel",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.mjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@marcbachmann/cel-js": "^5"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.1"
+  }
+}
