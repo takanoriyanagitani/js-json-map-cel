@@ -34,3 +34,22 @@ ex2() {
 
 ex1
 ex2
+
+ex3() {
+	echo "\n--- Running Example 3 (permissive mode with mixed types) ---"
+	jq -c -n '{
+    time: "2025-11-20T07:13:46.012Z",
+    severity: "DEBUG",
+    status: 200,
+    body: "apt update done",
+  }' | CEL_PERMISSIVE_TYPES=1 EXPR_STRING='{
+    "time_check": 0 < input.time.size() ? "ok" : "invalid time string: " + input.time,
+    "severity_check": input.severity in ["INFO", "WARN", "FATAL"]
+        ? "ok"
+        : "invalid severity string: " + input.severity,
+    "status_ok": 100 <= input.status && input.status < 600,
+    "body_ok": 0 < input.body.size(),
+  }' node ./index.mjs
+}
+
+ex3

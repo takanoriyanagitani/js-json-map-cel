@@ -9,8 +9,13 @@ import { Environment } from "@marcbachmann/cel-js";
  * @returns {function(any): any}
  */
 function createObjMapper(objName = "item", expr = "") {
+  const permissive = process.env.CEL_PERMISSIVE_TYPES === '1' || process.env.CEL_PERMISSIVE_TYPES === 'true';
+  const envOptions = {
+    homogeneousAggregateLiterals: !permissive
+  };
+
   /** @type {Environment} */
-  const env = new Environment()
+  const env = new Environment(envOptions)
     .registerVariable(objName, "map");
 
   /** @type {TypeCheckResult} */
